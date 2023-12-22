@@ -1,7 +1,11 @@
 #' @title correlation plot
 #' @description tow omics correlation
 #' @details Input two omics data matrix
-#' @param none
+#' @param data1 one omics matrix
+#' @param data2 another omics matrix
+#' @param type1 data1 omics type
+#' @param type2 data2 omics type
+#' @param method correlation method one of "spearman","person",defult is "spearman"
 #' @return Correlation analysis of Multi-omics data.
 #' @export
 #' @import ggplot2 dplyr pheatmap Hmisc
@@ -62,7 +66,7 @@ CorrPlotTotal <- function(data1 = data1,data2 = data2,type1=NULL,type2=NULL,
                     width = 8,height = 8.8,dpi = 900)
 
     edge_data = MulOCor::cormatrix(res$r,res$P,data_com,data1)
-    nrow(edge_data)
+    #nrow(edge_data)
     #cutoff
     edge_data_clear = edge_data[abs(edge_data$cor) > cutoff_cor & edge_data$p< cutoff_p,]
     #remove inter omics relation
@@ -70,7 +74,7 @@ CorrPlotTotal <- function(data1 = data1,data2 = data2,type1=NULL,type2=NULL,
     write.csv(x = edge_data_clear,file = "相关性网络边文件.csv",row.names = F)
     }
   else{
-    print("两个组学间样本名称不一致或者样本顺序有误，请检查后修改再分析")
+    print("两个组学间样本名称不一致或者样本顺序有误，请检查后修改再尝试")
   }
 }
 
