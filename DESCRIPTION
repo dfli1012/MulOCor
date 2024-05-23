@@ -1,0 +1,20 @@
+Package: MulOCor
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.1
+Author: ldf
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MulanPSL2
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2,
+    Hmisc,
+    pheatmap,
+    dplyr
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
